@@ -1,0 +1,114 @@
+---
+layout: post
+title: 介绍一款好玩的工具 [Appetizer]
+categories: Blog
+description:  介绍一款好玩的工具 [Appetizer]
+keywords:   好玩的工具 [Appetizer]
+
+---
+
+# 介绍一款好玩的工具 [Appetizer]
+
+**介绍一款好玩的工具，测试同学可能比较感兴趣，同时控制多个收集操作：**
+
+
+
+
+
+`replaykit` 是 [Appetizer](https://appetizer.io/) 的核心功能，它提供了如下功能:
+
+- 从单台设备录制屏幕触碰事件，在多台设备上重放（需要屏幕横宽比一致）
+- 同时控制多台设备（例如, 运行一个 shell 命令，安装 apk 等）
+- 将一台设备的屏幕触碰事件，镜像操作到多台设备上（需要屏幕横宽比一致）
+
+`replaykit` 是一个命令行工具，能够运行在 Windows 7+，MacOS Mavericks+ 和 Linux 操作系统上。一同提供的还包括 [Python SDK](https://github.com/appetizerio/replaykit.py) 和 [Nodejs SDK](https://github.com/appetizerio/replaykit.js)。 `replaykit` 要求 `adb` 已添加到 `PATH` 环境变量上.
+
+欢迎提交关于 bug，功能和特性的 issues 以及 Pull requests。
+
+## 安装
+
+不同系统的可执行文件可以在如下文件夹下找到， MacOS 系统的在 `darwin/` 文件夹下， Windows 系统的在 `win32/` 文件夹下， Ubuntu Fedora 和 CentOS 系统的在 `linux/` 文件夹下。 可以将路径添加到 `PATH` 下全局运行。 Linux 和 MacOS 需要在64位环境下运行，Windows 可以在64位环境下运行（兼容32位环境)
+
+```
+用法: appetizer [-h] {version,trace,adb,devices,plan} ...
+
+参数说明:
+  {version,trace,adb,devices,plan}
+                        说明
+    version             显示版本并退出程序
+    trace               录制或重放触屏事件
+    adb                 控制本地 adb
+    devices             控制设备
+    plan                运行一个测试计划文件
+
+可选参数:
+  -h, --help            显示帮助说明并退出程序
+
+
+```
+
+## 录制和重放
+
+录制或重放触屏事件，输入 `appetizer trace`:
+
+```
+用法: appetizer trace [-h] {info,replay,record} ...
+
+参数说明:
+  {info,replay,record}  操作
+    info                获取录制文件的信息
+    replay              在若干设备上重放录制文件的操作
+    record              录制触屏操作
+
+可选参数:
+  -h, --help            显示帮助说明并退出程序
+
+```
+
+录制和重放的演示： [![Record and replay](https://camo.githubusercontent.com/b42e51c1d6db71e6294c6fc2283ca2bc6042e13a/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3538333636303739305f3634302e6a7067)](http://www.bilibili.com/video/av6725203/index_2.html)
+
+## 控制多设备和镜像操作
+
+同时控制多台设备，输入 `appetizer devices`:
+
+```
+用法: appetizer devices [-h]
+                                           {list,screenshot,mirror,control}
+                                           ...
+
+参数说明:
+  {list,screenshot,mirror,control}
+                        在设备上的操作
+    list                显示连接的设备列表
+    screenshot          截屏
+    mirror              实时将一台设备的屏幕触碰事件，镜像到多台设备上
+    control             控制设备
+
+可选参数:
+  -h, --help            显示帮助说明并退出程序
+
+```
+
+实时将一台设备的屏幕触碰事件，镜像到多台设备上的演示： [![mirroring](https://camo.githubusercontent.com/2983e90039d49d54a0850925bd528b4079928b71/68747470733a2f2f692e76696d656f63646e2e636f6d2f766964656f2f3538353132303337345f3634302e6a7067)](http://www.bilibili.com/video/av6725203/index_3.html)
+
+## ADB 相关
+
+Android SDK 的 `adb` 是 `replaykit` 的必要依赖。replaykit 本身可以检测是否有 adb 二进制环境并且可以控制 adb server。
+
+```
+用法: appetizer adb [-h]
+                                       
+                                       {check-server,start-server,kill-server,detectadb}
+                                       ...
+
+参数说明:
+  {check-server,start-server,kill-server,detectadb}
+                        在 adb server 上的操作
+    check-server        确认 adb server 的状态
+    start-server        启动 adb server
+    kill-server         杀死 adb server 进程
+    detectadb           检测 adb 路径
+
+可选参数:
+  -h, --help            显示帮助说明并退出程序](http://weishu.me/2016/05/30/how-to-debug-android-framework/)
+```
