@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 直接从 APK 运行嵌入式 DEX 代码
-categories: [Blog,Cat]
+categories: [Blog]
 description:直接从 APK 运行嵌入式 DEX 代码
 keywords: 直接从 APK 运行嵌入式 DEX 代码
 ---
