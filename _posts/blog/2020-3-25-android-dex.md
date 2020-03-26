@@ -2,9 +2,8 @@
 layout: post
 title: 直接从APK运行嵌入式DEX代码
 categories: Blog
-description:app安全
-keywords: 直接从,APK,运行嵌入式,DEX,代码
-
+description: 直接从APK运行嵌入式DEX代码
+keywords: 直接从APK运行嵌入式DEX代码
 
 ---
 
