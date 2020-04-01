@@ -7,8 +7,7 @@ keywords:  ANDROID_SDK_ROOT
 
 ---
 
-这台电脑上之前运行 Android Studio 很正常，今天晚上突然无法启动 Android 模拟器。
-
+今天捣鼓flutter的时候突然遇到一个报错，怎么弄都不行，[原文](https://www.sunzhongwei.com/android-studio-system-environment-variables)
 报错信息为：
 
 ```
