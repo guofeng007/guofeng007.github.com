@@ -53,7 +53,7 @@ flutter build web
 
 ```
 
-## 4. 编写叫自动编译，拷贝目录到www
+## 4. 编写脚本自动编译，拷贝目录到www
 
 ```
 mkdir bin
