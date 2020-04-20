@@ -1,3 +1,13 @@
+---
+layout: post
+title: flutter Crash上报方案
+categories: Blog
+description:  上报flutter crash
+keywords:  flutter,crash
+
+---
+
+
 ## 一、flutter 崩溃收集的方式
 
 ## 1、通用方式
