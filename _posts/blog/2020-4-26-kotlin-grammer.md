@@ -9,7 +9,7 @@ keywords:  Kotlin,小知识
 
 
 
-1. 变量的初始化，与空类型判断
+## 1. 变量的初始化，与空类型判断
 
 var a = "string" 定义就初始化可以自动类型推断
 
@@ -35,21 +35,21 @@ var 变量
 
 val 常量（类似java final)
 
-2. 函数
+## 2. 函数
 
 返回值：Unit、Void
 
 
 
-3. get set自动
+## 3. get set自动
 
 
 
-4. Int Float，语言层面不在有基本类型了
+## 4. Int Float，语言层面不在有基本类型了
 
 
 
-5. 类
+## 5. 类
 
 class A :constructor(var name:String)，主构造函数，次函数必须要调用一下主构造函数
 
@@ -81,7 +81,7 @@ const val 编译时常量
 
 
 
-6. 集合
+## 6. 集合
 
 Range,sequence流控制
 
@@ -105,7 +105,7 @@ Switch-->when
 
 
 
-7. 泛型
+## 7. 泛型
 
 数组没有擦出，泛型擦出了
 
@@ -119,7 +119,7 @@ Any Object
 
 
 
-8. lambda
+## 8. lambda
 
 匿名函数，都是函数对象
 
@@ -148,24 +148,35 @@ It
 
 
 
+## 9. 其他
+密封类：类似于常量或者枚举 sealed class Expr
+数据类： data class User(var name:String)
 
-数据类
-
-内联函数
-
-委托
-
-扩展函数
-
-单例
-
-高阶函数
+内联函数：inline
 
 
+单例: object/compaion object
+
+高阶函数:返回的时函数
+
+
+
+委托 类似动态代理
+
+扩展函数：类编译优化
 
 反射
-
 注解
+
+
+
+
+
+
+
+
+
+
 
 
 
