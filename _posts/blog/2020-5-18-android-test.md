@@ -67,3 +67,120 @@ Espresso可以满足需求。
 同时如果是测试其他应用，或者没有源代码，可以使用[UI Automator](https://developer.android.google.cn/training/testing/ui-testing/uiautomator-testing)。
 
 如果想跨android,ios,h5可以使用Appium
+
+
+
+Appium环境搭建： https://www.cnblogs.com/Jack-cx/p/9968518.html
+
+测试代码：
+
+`
+
+```python
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# coding:utf-8
+
+from appium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+
+from selenium.webdriver.support import expected_conditions as EC
+
+from time import sleep
+
+import unittest
+import os
+import time
+
+
+class AndroidTest(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(self):
+        desired_caps = {}
+
+        desired_caps['platformName'] = 'Android'  # 设备系统
+
+        desired_caps['platformVersion'] = '10.0'  # 设备系统版本
+
+        desired_caps['deviceName'] = '2KE0219B16021414'  # 设备名称
+
+        desired_caps['appPackage'] = 'com.example.learnandroidtest'  # 上面提到获取的参数
+
+        desired_caps['appActivity'] = 'com.example.learnandroidtest.MainActivity'  # 上面说到获取的参数
+
+        self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+
+
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
+
+
+    def leftSwipe(self):
+        window_size = self.driver.get_window_size()
+        self.driver.swipe(start_x=window_size["width"] * 0.8,
+                          start_y=window_size["height"] * 0.5,
+                          end_x=window_size["width"] * 0.1,
+                          end_y=window_size["height"] * 0.5)
+
+
+    def wait_for_element(self, xpath=None, id=None, index=None, timeOut=20):
+        startTime = time.time()
+        nowTime = time.time()
+        while nowTime - startTime < timeOut:
+            try:
+                if xpath is not None:
+                    el = self.driver.find_element_by_xpath(xpath)
+                    return el
+            except:
+                pass
+
+            try:
+                if id is not None:
+                    if index is not None:
+                        return self.driver.find_element_by_id(id)[index]
+                    else:
+                        return self.driver.find_element_by_id(id)
+            except:
+                pass
+
+            sleep(1)
+
+            nowTime = time.time()
+
+        raise Exception("Element xpath[%s] id[%s] index[%s] is not found" % (xpath, id, index))
+
+
+    def test_a_utFrame(self):
+        print(self.driver.current_activity)
+
+
+        time.sleep(8)
+        circulation = 2
+
+        while circulation > 0:
+            time.sleep(1)
+            self.leftSwipe()
+            self.leftSwipe()
+
+            self.wait_for_element(id="com.example.learnandroidtest:id/editText").clear().send_keys("Espresso")
+            time.sleep(1)
+
+            # 系统返回键
+            self.wait_for_element(id="com.example.learnandroidtest:id/myButton").click()
+            time.sleep(1)
+
+            self.assertEqual(self.wait_for_element(id="com.example.learnandroidtest:id/textView").text, "Espresso")
+
+            circulation -= 1
+
+
+if __name__ == '__main__':
+    suite = unittest.TestSuite()
+    suite.addTest(AndroidTest("test_a_utFrame"))
+    unittest.TextTestRunner(verbosity=2).run(suite)
+```
+
+`
+
