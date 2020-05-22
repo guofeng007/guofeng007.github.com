@@ -184,3 +184,26 @@ if __name__ == '__main__':
 
 `
 
+*附加资源*
+
+Github demo :https://github.com/qingmei2/Sample_AndroidTest
+
+Google 测试demo https://github.com/android/testing-samples
+
+开源库ui测试样例：https://github.com/qingmei2/RxImagePicker
+
+Google 官方 todo-mvp demo: https://github.com/android/architecture-samples.git
+
+入门文章：解放双手，Android开发应该尝试的UI自动化测试 https://blog.csdn.net/mq2553299/article/details/81454441
+
+异步代码测试
+
+https://blog.csdn.net/mq2553299/article/details/74490718
+
+原理 https://blog.csdn.net/o279642707/article/details/54667937
+
+Google 官网：https://developer.android.google.cn/training/testing
+
+expresso中文翻译：
+
+https://lovexiaov.gitbooks.io/official-espresso-doc/content/
